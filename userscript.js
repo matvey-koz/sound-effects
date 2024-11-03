@@ -48,7 +48,7 @@
         soundOption.textContent = name;
         soundOption.style.padding = "10px";
         soundOption.style.cursor = "pointer";
-        soundOption.style.color = "#007bff";
+        soundOption.style.color = "#414141";
         soundOption.addEventListener("click", () => {
             playSound(url);
             toggleDropdown(); // Hide dropdown after selection
