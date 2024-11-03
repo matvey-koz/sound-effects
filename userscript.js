@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Audio Button with Sound Effects
+// @name         Audio Button with Sliding Sound Effects Menu
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Add an audio button to the top-right of any website with a dropdown of sound effects
+// @description  Add an audio button with a sliding dropdown of sound effects
 // @match        *://*/*
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -29,14 +29,16 @@
 
     // Create dropdown for sound effects
     const dropdown = document.createElement("div");
-    dropdown.style.position = "absolute";
-    dropdown.style.top = "40px";
-    dropdown.style.right = "0";
+    dropdown.style.position = "fixed";
+    dropdown.style.top = "-200px"; // Start off-screen
+    dropdown.style.right = "10px";
     dropdown.style.backgroundColor = "#f9f9f9";
     dropdown.style.boxShadow = "0px 8px 16px rgba(0,0,0,0.2)";
     dropdown.style.borderRadius = "5px";
-    dropdown.style.display = "none";
-    dropdown.style.zIndex = "99";
+    dropdown.style.transition = "top 0.3s ease"; // Slide-in transition
+    dropdown.style.zIndex = "100";
+    dropdown.style.paddingTop = "10px";
+    dropdown.style.paddingBottom = "10px";
 
     // Add sound options to dropdown
     for (const [name, url] of Object.entries(soundEffects)) {
@@ -47,22 +49,30 @@
         soundOption.style.color = "#007bff";
         soundOption.addEventListener("click", () => {
             playSound(url);
+            toggleDropdown(); // Hide dropdown after selection
         });
         dropdown.appendChild(soundOption);
     }
 
-    // Append dropdown to button
-    audioButton.appendChild(dropdown);
+    // Append dropdown to body
+    document.body.appendChild(dropdown);
 
-    // Toggle dropdown visibility on button click
-    audioButton.addEventListener("click", () => {
-        dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+    // Toggle dropdown visibility and position
+    let isDropdownVisible = false;
+    audioButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent click event from bubbling up
+        toggleDropdown();
     });
+
+    function toggleDropdown() {
+        isDropdownVisible = !isDropdownVisible;
+        dropdown.style.top = isDropdownVisible ? "60px" : "-200px"; // Slide down from the top
+    }
 
     // Hide dropdown when clicking outside
     document.addEventListener("click", (event) => {
-        if (!audioButton.contains(event.target)) {
-            dropdown.style.display = "none";
+        if (!audioButton.contains(event.target) && isDropdownVisible) {
+            toggleDropdown();
         }
     });
 
