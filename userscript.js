@@ -21,7 +21,7 @@
     const audioButton = document.createElement("img");
     audioButton.src = "https://github.com/matvey-koz/sound-effects/blob/main/audio-icon.png?raw=true";
     audioButton.style.position = "fixed";
-    audioButton.style.width = "50px";
+    audioButton.style.width = "30px";
     audioButton.style.top = "10px";
     audioButton.style.right = "10px";
     audioButton.style.zIndex = "99";
