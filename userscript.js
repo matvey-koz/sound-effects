@@ -23,6 +23,8 @@
         "🎷Saxaphone": "https://www.myinstants.com/media/sounds/george-micael-wham-careless-whisper-1.mp3",
         "👃English or Spanish": "https://www.myinstants.com/media/sounds/english-or-spanish-song.mp3",
         "🤯What da hell?!": "https://www.myinstants.com/media/sounds/wait-wait-wait-what-the-hell-legend-sound.mp3",
+        "🫵Omg Bruh Oh Hell Nah": "https://www.myinstants.com/media/sounds/omg-bruh-oh-hell-nah.mp3",
+        "☝️Omg Bruh Oh Hell Nah": "https://www.myinstants.com/media/sounds/get-back-to-work-blud.mp3",
     };
 
     const startingPositionPopup = Object.keys(soundEffects).length * -53 + "px";
