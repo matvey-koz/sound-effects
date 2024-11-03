@@ -4,19 +4,19 @@
 // @version      1.2
 // @description  Add an audio button with a sliding dropdown of sound effects
 // @match        https://replace-with-actual-website-link.com/
-// @grant        GM_addStyle
+// @grant        none
 // ==/UserScript==
 
-(function () {
-    function loadScript(url) {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = url;
-            script.onload = () => resolve(`Script loaded: ${url}`);
-            script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
-            document.head.appendChild(script); // You can also use document.body
-        });
+(async function () {
+    const url = "https://raw.githubusercontent.com/matvey-koz/sound-effects/main/main.js";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        const scriptContent = await response.text();
+        eval(scriptContent); // Execute the script
+        console.log(`Script loaded: ${url}`);
+    } catch (error) {
+        console.error(`Failed to load script: ${error.message}`);
     }
-
-    loadScript("https://raw.githubusercontent.com/matvey-koz/sound-effects/refs/heads/main/main.js");
 })();
