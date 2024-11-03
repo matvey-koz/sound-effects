@@ -12,9 +12,9 @@
 
     // Define sound effects with URLs
     const soundEffects = {
-        "Click Sound": "https://www.soundjay.com/button/sounds/button-16.mp3",
-        "Alert Sound": "https://www.myinstants.com//media/sounds/tindeck_1.mp3",
-        "Ding Sound": "https://www.soundjay.com/button/sounds/ding-03.mp3"
+        "💥Vine Boom": "https://www.myinstants.com/media/sounds/vine-boom.mp3",
+        "⚠️Alert Sound": "https://www.myinstants.com//media/sounds/tindeck_1.mp3",
+        "🔙Get Out!": "https://www.myinstants.com/media/sounds/tuco-get-out.mp3",
     };
 
     // Create audio button
