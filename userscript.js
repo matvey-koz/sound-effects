@@ -18,18 +18,14 @@
     };
 
     // Create audio button
-    const audioButton = document.createElement("button");
-    audioButton.textContent = "🔊 Audio";
+    const audioButton = document.createElement("img");
+    audioButton.src = "https://github.com/matvey-koz/sound-effects/blob/main/audio-icon.png?raw=true";
     audioButton.style.position = "fixed";
+    audioButton.style.width = "50px";
     audioButton.style.top = "10px";
     audioButton.style.right = "10px";
     audioButton.style.zIndex = "99";
-    audioButton.style.padding = "10px 15px";
-    audioButton.style.border = "none";
-    audioButton.style.borderRadius = "5px";
     audioButton.style.cursor = "pointer";
-    audioButton.style.backgroundColor = "#007bff";
-    audioButton.style.color = "#fff";
 
     // Create dropdown for sound effects
     const dropdown = document.createElement("div");
