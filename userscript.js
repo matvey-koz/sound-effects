@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Audio Button with Sliding Sound Effects Menu
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Add an audio button with a sliding dropdown of sound effects
-// @match        *://*/*
+// @match        https://replace-with-actual-website-link.com/
 // @grant        GM_addStyle
 // ==/UserScript==
 
@@ -15,6 +15,10 @@
         "💥Vine Boom": "https://www.myinstants.com/media/sounds/vine-boom.mp3",
         "⚠️Alert Sound": "https://www.myinstants.com//media/sounds/tindeck_1.mp3",
         "🔙Get Out!": "https://www.myinstants.com/media/sounds/tuco-get-out.mp3",
+        "😏Rizz Sound": "https://www.myinstants.com/media/sounds/rizz-sound-effect.mp3",
+        "🎻Sad Violin": "https://www.myinstants.com/media/sounds/tf_nemesis.mp3",
+        "🧐Amongus Sus": "https://www.myinstants.com/media/sounds/among-us-role-reveal-sound.mp3",
+        "😑Bruh": "https://www.myinstants.com/media/sounds/movie_1.mp3",
     };
 
     // Create audio button
@@ -26,8 +30,8 @@
     audioButton.style.right = "10px";
     audioButton.style.zIndex = "99";
     audioButton.style.cursor = "pointer";
-    dropdown.style.boxShadow = "0px 8px 16px rgba(0,0,0,0.2)";
-    dropdown.style.borderRadius = "5px";
+    audioButton.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
+    audioButton.style.borderRadius = "99px";
 
     // Create dropdown for sound effects
     const dropdown = document.createElement("div");
@@ -49,9 +53,9 @@
         soundOption.style.padding = "10px";
         soundOption.style.cursor = "pointer";
         soundOption.style.color = "#414141";
-        soundOption.addEventListener("click", () => {
+        soundOption.addEventListener("click", (event) => {
+            event.stopPropagation(); // Prevent click event from closing the dropdown
             playSound(url);
-            toggleDropdown(); // Hide dropdown after selection
         });
         dropdown.appendChild(soundOption);
     }
@@ -73,7 +77,7 @@
 
     // Hide dropdown when clicking outside
     document.addEventListener("click", (event) => {
-        if (!audioButton.contains(event.target) && isDropdownVisible) {
+        if (!audioButton.contains(event.target) && !dropdown.contains(event.target) && isDropdownVisible) {
             toggleDropdown();
         }
     });
