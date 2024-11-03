@@ -26,6 +26,8 @@
     audioButton.style.right = "10px";
     audioButton.style.zIndex = "99";
     audioButton.style.cursor = "pointer";
+    dropdown.style.boxShadow = "0px 8px 16px rgba(0,0,0,0.2)";
+    dropdown.style.borderRadius = "5px";
 
     // Create dropdown for sound effects
     const dropdown = document.createElement("div");
