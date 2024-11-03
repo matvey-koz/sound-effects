@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Audio Button with Sliding Sound Effects Menu
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Add an audio button with a sliding dropdown of sound effects
 // @match        https://replace-with-actual-website-link.com/
 // @grant        GM_addStyle
@@ -90,10 +90,20 @@
         }
     });
 
+    // Variable to store currently playing audio
+    let currentAudio = null;
+
     // Function to play sound
     function playSound(url) {
-        const audio = new Audio(url);
-        audio.play();
+        // Stop current audio if it's playing
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Reset to the start
+        }
+
+        // Create a new audio instance and play it
+        currentAudio = new Audio(url);
+        currentAudio.play();
     }
 
     // Append button to body
