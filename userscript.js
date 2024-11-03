@@ -72,7 +72,7 @@
 
     function toggleDropdown() {
         isDropdownVisible = !isDropdownVisible;
-        dropdown.style.top = isDropdownVisible ? "60px" : "-200px"; // Slide down from the top
+        dropdown.style.top = isDropdownVisible ? "60px" : "-370px"; // Slide down from the top
     }
 
     // Hide dropdown when clicking outside
