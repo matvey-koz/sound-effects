@@ -19,9 +19,11 @@
         "🎻Sad Violin": "https://www.myinstants.com/media/sounds/tf_nemesis.mp3",
         "🧐Amongus Sus": "https://www.myinstants.com/media/sounds/among-us-role-reveal-sound.mp3",
         "😑Bruh": "https://www.myinstants.com/media/sounds/movie_1.mp3",
+        "🎶Outro Song": "https://www.myinstants.com/media/sounds/outro-song_oqu8zAg.mp3",
+        "🎷Saxaphone": "https://www.myinstants.com/media/sounds/george-micael-wham-careless-whisper-1.mp3",
+        "👃English or Spanish": "https://www.myinstants.com/media/sounds/english-or-spanish-song.mp3",
+        "🤯What da hell?!": "https://www.myinstants.com/media/sounds/wait-wait-wait-what-the-hell-legend-sound.mp3",
     };
-
-    
 
     const startingPositionPopup = Object.keys(soundEffects).length * -53 + "px";
 
