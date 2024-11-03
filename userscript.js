@@ -21,6 +21,10 @@
         "😑Bruh": "https://www.myinstants.com/media/sounds/movie_1.mp3",
     };
 
+    
+
+    const startingPositionPopup = Object.keys(soundEffects).length * -53 + "px";
+
     // Create audio button
     const audioButton = document.createElement("img");
     audioButton.src = "https://github.com/matvey-koz/sound-effects/blob/main/audio-icon.png?raw=true";
@@ -36,7 +40,7 @@
     // Create dropdown for sound effects
     const dropdown = document.createElement("div");
     dropdown.style.position = "fixed";
-    dropdown.style.top = "-200px"; // Start off-screen
+    dropdown.style.top = startingPositionPopup; // Start off-screen
     dropdown.style.right = "10px";
     dropdown.style.backgroundColor = "#f9f9f9";
     dropdown.style.boxShadow = "0px 8px 16px rgba(0,0,0,0.2)";
@@ -72,7 +76,7 @@
 
     function toggleDropdown() {
         isDropdownVisible = !isDropdownVisible;
-        dropdown.style.top = isDropdownVisible ? "60px" : "-370px"; // Slide down from the top
+        dropdown.style.top = isDropdownVisible ? "60px" : startingPositionPopup; // Slide down from the top
     }
 
     // Hide dropdown when clicking outside
